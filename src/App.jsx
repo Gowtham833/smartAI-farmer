@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef, useCallback } from "react";
+import { useState, useEffect, useCallback } from "react";
 
 // ─── In-Memory User Store (persists across this session) ─────────────────────
 const USER_STORE = {};
@@ -386,7 +386,7 @@ function MainApp({lang, setLang, user, onLogout}) {
 
   useEffect(()=>{
     setChatMsgs([{role:"ai",text:t.greeting,time:new Date().toLocaleTimeString()}]);
-  },[lang]);
+  },[lang, t]);
 
   const speak = useCallback((text)=>{
     if (!window.speechSynthesis) return;
